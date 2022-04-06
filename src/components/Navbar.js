@@ -13,7 +13,7 @@ const Navbar = () => {
       <nav className="ml-auto mr-8">
         <ul className="flex items-center justify-center gap-8">
           <Link to="/" className="text-4xl hover:underline">Home</Link>
-          <button className="text-4xl hover:underline">Shop</button>
+          <Link to="shop" className="text-4xl hover:underline">Shop</Link>
           <button className="text-4xl hover:underline">Cart</button>
         </ul>
       </nav>
