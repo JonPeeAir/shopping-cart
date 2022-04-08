@@ -5,9 +5,9 @@ import logo from './assets/pepe.png';
 const App = () => {
 
   return (
-    <div className="h-screen">
+    <div className="h-screen pt-44">
 
-      <header className="flex items-center w-full p-5 bg-white gap-4 drop-shadow-xl">
+      <header className="fixed top-0 flex items-center w-full p-5 bg-white gap-4 drop-shadow-xl">
         <img src={logo} alt="pepe the frog logo" className="w-[100px]"/>
 
         <h1 className="text-5xl cursor-default select-none">pepe's SHOP</h1>
