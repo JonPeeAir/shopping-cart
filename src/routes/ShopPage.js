@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import dancingPepe from "../assets/sad-dancing-pepe.gif";
+
 const ShopPage = () => {
 
   async function fetchProducts() {
@@ -16,7 +18,16 @@ const ShopPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-8">
+    <div className="flex flex-wrap items-center justify-center h-full gap-8">
+
+      {
+        products.length === 0 &&
+          <div className="grid place-items-center">
+            <p>** are you entertained yet? **</p>
+            <img src={dancingPepe} alt="sad dancing pepe" className="w-[50%]"/>
+            <p>Loading Shop...</p>
+          </div>
+      }
 
       {products.map(product => {
         return(
