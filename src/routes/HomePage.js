@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-
 import dealerPepe from '../assets/dealer-pepe.jpg';
 
 const HomePage = () => {
@@ -19,8 +18,6 @@ const HomePage = () => {
         <Link to="/shop" className="block px-5 py-2 mt-10 text-xl rounded-full w-fit bg-amber-300 active:bg-amber-200">
           Check out the shop?
         </Link>
-
-        <p className="mt-10 text-xs">Also...um this website is not at all going to be "Pepe Frog" themed btw</p>
       </section>
 
     </div>
