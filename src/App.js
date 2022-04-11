@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import DynamicLink from './components/DynamicLink';
 import logo from './assets/pepe.png';
 
 
 const App = () => {
+
+  const [cart, setCart] = useState({items: {}, itemCount: 0, totalPrice: 0});
 
   return (
     <div className="flex flex-col h-screen">
@@ -16,13 +19,16 @@ const App = () => {
           <ul className="flex items-center justify-center gap-8">
             <DynamicLink to="/" className="text-4xl hover:underline">Home</DynamicLink>
             <DynamicLink to="/shop" className="text-4xl hover:underline">Shop</DynamicLink>
-            <button className="text-4xl hover:underline">Cart</button>
+            <button className="text-4xl">
+              <span className="hover:underline">Cart</span>
+              {cart.itemCount > 0 && <sub> {cart.itemCount}</sub>}
+            </button>
           </ul>
         </nav>
       </header>
 
       {/* This is where the pages will be displayed */}
-      <Outlet />
+      <Outlet context={[cart, setCart]}/>
 
     </div>
   );
