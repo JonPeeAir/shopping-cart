@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+import DynamicLink from "../components/DynamicLink";
 import dancingPepe from "../assets/sad-dancing-pepe.gif";
 
 const ShopPage = () => {
@@ -19,7 +20,7 @@ const ShopPage = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
 
-  let [searchParams, setSearchParams] = useSearchParams();
+  let [searchParams] = useSearchParams();
 
   useEffect(() => {
     fetchProducts().then(json => setProducts(json));
@@ -52,26 +53,33 @@ const ShopPage = () => {
             <div className="w-1/4 h-full pt-10">
               <p className="text-3xl leading-loose text-center">Categories</p>
               <nav>
-                <Link to="/shop" className="block text-xl text-center">
+                <DynamicLink to="?category=all" className="block text-xl text-center">
                   All
-                </Link>
+                </DynamicLink>
                 {
                   categories.map(category => (
-                    <Link to={`?category=${category}`} className="block text-xl text-center" key={category}>
+                    <DynamicLink
+                      key={category}
+                      to={`?category=${category}`}
+                      className="block text-xl text-center"
+                    >
                       {category}
-                    </Link>
+                    </DynamicLink>
                   ))
                 }
               </nav>
             </div>
 
-            <div id="product-grid" className="flex flex-wrap items-center justify-center w-3/4 h-full pt-10 overflow-scroll border-l gap-8">
+            <div
+              id="product-grid"
+              className="flex flex-wrap items-center justify-center w-3/4 h-full pt-10 overflow-scroll border-l gap-8"
+            >
 
                 {
                   products
                     .filter(product => {
                       let category = searchParams.get("category");
-                      if (!category) return true;
+                      if (!category || category === "all") return true;
                       return product.category === category;
                     })
                     .map(product => {

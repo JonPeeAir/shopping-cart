@@ -1,5 +1,7 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import DynamicLink from './components/DynamicLink';
 import logo from './assets/pepe.png';
+
 
 const App = () => {
 
@@ -12,8 +14,8 @@ const App = () => {
         <h1 className="text-5xl cursor-default select-none">pepe's SHOP</h1>
         <nav className="ml-auto mr-8">
           <ul className="flex items-center justify-center gap-8">
-            <Link to="/" className="text-4xl hover:underline">Home</Link>
-            <Link to="/shop" className="text-4xl hover:underline">Shop</Link>
+            <DynamicLink to="/" className="text-4xl hover:underline">Home</DynamicLink>
+            <DynamicLink to="/shop" className="text-4xl hover:underline">Shop</DynamicLink>
             <button className="text-4xl hover:underline">Cart</button>
           </ul>
         </nav>
