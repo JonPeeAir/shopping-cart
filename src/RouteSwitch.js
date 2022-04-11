@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route  } from "react-router-dom";
 
 import App from "./App";
 import HomePage from "./routes/HomePage";
-import ShopPage from "./routes/ShopPage";
+import ShopPage from "./routes/shoppage/ShopPage";
 import InvalidPage from "./routes/InvalidPage";
 
 const RouteSwitch = () => {
