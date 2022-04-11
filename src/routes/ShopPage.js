@@ -26,6 +26,13 @@ const ShopPage = () => {
     fetchCategories().then(json => setCategories(json));
   }, []);
 
+  useEffect(() => {
+    let productGrid = document.getElementById("product-grid");
+    if (productGrid && productGrid.scrollTop) {
+      productGrid.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  });
+
   return (
     <>
 
